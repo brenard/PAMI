@@ -1,0 +1,8 @@
+This package include Autoloader class extract from PAMI version 1.70.2.
+This class is not included anymore but it's could be usefull in not
+composer installation context.
+
+To use it, you just have to run the following code before using PAMI :
+
+  require_once 'PAMI/Autoloader/Autoloader.php';
+  PAMI\Autoloader\Autoloader::register();

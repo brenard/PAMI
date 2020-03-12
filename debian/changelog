@@ -1,0 +1,13 @@
+php-pami (2.0.4-1) unstable; urgency=low
+
+  * Upgrade to upstream version 2.0.4 (from https://github.com/chan-sccp/PAMI)
+
+ -- Benjamin Renard <brenard@easter-eggs.com>  Thu, 12 Mar 2020 16:10:18 +0100
+
+
+php-pami (2.0.1-1~dev-d35fbb7) unstable; urgency=low
+
+  * Initial debian package release
+
+ -- Benjamin Renard <brenard@easter-eggs.com>  Fri, 25 Jan 2019 17:30:57 +0100
+

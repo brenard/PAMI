@@ -1,0 +1,22 @@
+Source: php-pami
+Section: web
+Priority: optional
+Maintainer: Benjamin Renard <brenard@easter-eggs.com>
+Build-Depends: debhelper (>= 7), phing, composer
+Standards-Version: 3.9.1
+
+Package: php-pami
+Architecture: all
+Depends: php-apache-log4php, php-psr-log
+Description: PHP Asterisk Manager Interface
+ PHP Asterisk Manager Interface ( AMI ) supports synchronous command
+ ( action )/ responses and asynchronous events using the pattern
+ observer-listener. Supports commands with responses with multiple
+ events. Very suitable for development of operator consoles and / or
+ asterisk / channels / peers monitoring through SOA, etc.
+
+Package: php-pami-autoloader
+Architecture: all
+Depends: php-pami
+Description: Autoloader class for PHP Asterisk Manager Interface
+ Autoloader class for PHP Asterisk Manager Interface

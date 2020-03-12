@@ -1,0 +1,12 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_clean:
+	rm -fr $(CURDIR)/vendor $(CURDIR)/composer.lock
+	phing clean
+
+override_dh_auto_build:
+	composer install
+	phing prepare md doc
