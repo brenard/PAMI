@@ -41,8 +41,10 @@
   </target>
 
   <target name="dochtml">
+  <?ignore
     <exec command="vendor/bin/phploc --log-xml=build/phploc.xml ./src" checkreturn="true" passthru="false"/>
     <exec command="vendor/bin/phpdox" checkreturn="true" passthru="true"/>
+  ?>
   </target>
 
   <target name="docmd">

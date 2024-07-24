@@ -1,3 +1,10 @@
+php-pami (2.0.10-1) unstable; urgency=medium
+
+  * Upgrade to upstream version 2.0.10
+    https://github.com/chan-sccp/PAMI/releases/tag/v2.0.10
+
+ -- Benjamin Renard <brenard@easter-eggs.com>  Wed, 24 Jul 2024 10:33:00 +0200
+
 php-pami (2.0.4-1) unstable; urgency=low
 
   * Upgrade to upstream version 2.0.4 (from https://github.com/chan-sccp/PAMI)
