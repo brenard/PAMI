@@ -58,7 +58,7 @@ class ResponseFactoryImpl implements IResponseFactory
      * @param string          $message Literal message as received from ami.
      * @param OutgoingMessage $requestingAction
      *
-     * @return ResponseMessage
+     * @return Response
      * @throws PAMIException
      */
     public function createFromRaw($message, $requestingAction = null)

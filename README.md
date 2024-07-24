@@ -1,11 +1,10 @@
-
 [![Gitter](https://badges.gitter.im/chan-sccp/PAMI.svg)](https://gitter.im/chan-sccp/PAMI?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 <!--
 [![License](https://poser.pugx.org/marcelog/PAMI/license)](https://packagist.org/packages/marcelog/PAMI)
 [![Latest Stable Version](https://poser.pugx.org/marcelog/PAMI/v/stable)](https://packagist.org/packages/marcelog/PAMI)
 [![Documentation Status](https://readthedocs.org/projects/pami/badge/?version=latest)](http://pami.readthedocs.org/en/latest/?badge=latest)
 -->
-[![Build Status](https://travis-ci.org/chan-sccp/PAMI.svg)](https://travis-ci.org/chan-sccp/PAMI)
+[![Build Status](http://img.shields.io/travis/chan-sccp/PAMI.svg?style=flat)](https://app.travis-ci.com/github/chan-sccp/PAMI)
 [![Coverage Status](https://coveralls.io/repos/github/chan-sccp/PAMI/badge.svg?branch=master)](https://coveralls.io/github/chan-sccp/PAMI?branch=master)
 [![Code Climate](https://codeclimate.com/github/chan-sccp/PAMI/badges/gpa.svg)](https://codeclimate.com/github/chan-sccp/PAMI)
 <!--

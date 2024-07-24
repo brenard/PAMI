@@ -139,7 +139,7 @@ namespace PAMI\Client\Impl {
                 'NewAccountCode',
                 'NewCallerid',
                 'Newchannel',
-                'Newexten',
+                'NewExten',
                 'Newstate',
                 'OriginateResponse',
                 'OutboundRegistrationDetail',
@@ -584,7 +584,7 @@ namespace PAMI\Client\Impl {
                 'Privilege' => 'Privilege',
                 'LinkedId' => 'LinkedId',
             ),
-            'Newexten' => array(
+            'NewExten' => array(
                 'Channel' => 'Channel',
                 'Privilege' => 'Privilege',
                 'AppData' => 'AppData',
@@ -2071,7 +2071,7 @@ namespace PAMI\Client\Impl {
                 'CID-CallingPres' => 'CallerIdPres'
             ),
             'Newchannel' => array('Exten' => 'Extension'),
-            'Newexten' => array(
+            'NewExten' => array(
                 'AppData' => 'ApplicationData',
             ),
             'QueueMemberStatus' => array(

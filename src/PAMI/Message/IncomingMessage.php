@@ -197,10 +197,11 @@ abstract class IncomingMessage extends Message
                     $chanName = $captures[1];
                 }
                 $content = explode('=', $value);
-                $name = strtolower(trim($content[0]));
+                $name = trim($content[0]);
                 unset($content[0]);
                 $value = isset($content[1]) ? trim(implode(':', $content)) : '';
-                $this->channelVariables[$chanName][$name] = $value;
+                $this->channelVariables[$chanName][strtolower($name)] = $value;
+                $this->setSanitizedKey('chanvariable', $name);
             } elseif (!strncmp($name, 'variable', 8)) {
                 // https://github.com/marcelog/PAMI/issues/85
                 $matches = preg_match("/\(([^\)]*)\)/", $name, $captures);
@@ -209,18 +210,17 @@ abstract class IncomingMessage extends Message
                     $chanName = $captures[1];
                 }
                 $content = explode('=', $value);
-                $name = strtolower(trim($content[0]));
+                $name = trim($content[0]);
                 unset($content[0]);
                 $value = isset($content[1]) ? trim(implode(':', $content)) : '';
-                $this->statusVariables[$chanName][$name] = $value;
-            } else {
-                // Added ResponseFactory #d3b0ce8
-                try {
-                    $this->setSanitizedKey($name, $value);
-                } catch (PAMIException $e) {
-                    throw new PAMIException("Error: '" . $e . "'\n Dump RawContent:\n"  . $this->rawContent ."\n");
-                }
-                //$this->setKey($name, $value);
+                $this->statusVariables[$chanName][strtolower($name)] = $value;
+                $this->setSanitizedKey('variable', $name);
+            }
+            // Added ResponseFactory #d3b0ce8
+            try {
+                $this->setSanitizedKey($name, $value);
+            } catch (PAMIException $e) {
+                throw new PAMIException("Error: '" . $e . "'\n Dump RawContent:\n"  . $this->rawContent ."\n");
             }
         }
         // https://github.com/marcelog/PAMI/issues/85

@@ -112,7 +112,7 @@ class ClientImpl implements IClient
     private $responseFactory;
 
     /**
-     * R/W timeout, in milliseconds.
+     * R/W timeout, in seconds.
      * @var integer
      */
     private $rTimeout;
@@ -137,7 +137,7 @@ class ClientImpl implements IClient
 
     /**
      * The receiving queue.
-     * @var ResponseMessage[]
+     * @var Response[]
      */
     private $incomingQueue;
 
@@ -233,7 +233,7 @@ class ClientImpl implements IClient
         $this->logger->debug(sprintf('recv <-- asteriskId: "%s"', $asteriskId));
 
         $msg = new LoginAction($this->user, $this->pass);
-        $this->send($msg, function (ResponseMessage $response) use ($socketUri) {
+        $this->send($msg, function (Response $response) use ($socketUri) {
             if (!$response->isSuccess()) {
                 throw new ClientException(
                     sprintf('Could not connect to: "%s", response: "%s"', $socketUri, $response->getMessage())
@@ -328,7 +328,11 @@ class ClientImpl implements IClient
             } elseif ($evePos !== false) {
                 $event = $this->messageToEvent($aMsg);
                 $response = $this->findResponse($event);
-                if ($response === false || $response->isComplete()) {
+                if (gettype($response) == "boolean" && $response === false) {
+                    $this->dispatch($event);
+                } elseif (!($response instanceof Response)) {
+                    $this->dispatch($event);
+                } elseif ($response->isComplete()) {
                     $this->dispatch($event);
                 } else {
                     $response->addEvent($event);
@@ -340,7 +344,9 @@ class ClientImpl implements IClient
                 $bMsg .= 'ActionId: ' . $this->lastActionId . "\r\n" . $aMsg;
                 $event = $this->messageToEvent($bMsg);
                 $response = $this->findResponse($event);
-                $response->addEvent($event);
+                if ($response instanceof Response) {
+                    $response->addEvent($event);
+                }
             }
             $this->logger->debug('----------------');
         }
@@ -352,7 +358,7 @@ class ClientImpl implements IClient
      *
      * @param IncomingMessage $message Message sent by asterisk.
      *
-     * @return \PAMI\Message\Response\ResponseMessage
+     * @return \PAMI\Message\Response\Response
      */
     protected function findResponse(IncomingMessage $message)
     {
@@ -418,11 +424,11 @@ class ClientImpl implements IClient
     }
 
     /**
-     * Returns a ResponseMessage from a raw string that came from asterisk.
+     * Returns a Response from a raw string that came from asterisk.
      *
      * @param string $msg Raw string.
      *
-     * @return \PAMI\Message\Response\ResponseMessage
+     * @return \PAMI\Message\Response\Response
      */
     private function messageToResponse($msg)
     {
@@ -455,7 +461,7 @@ class ClientImpl implements IClient
      *
      * @param OutgoingMessage $message
      *
-     * @return \PAMI\Message\Response\ResponseMessage
+     * @return \PAMI\Message\Response\Response
      */
     protected function getRelated(OutgoingMessage $message)
     {
@@ -478,7 +484,7 @@ class ClientImpl implements IClient
      *
      * @see ClientImpl::send()
      * @throws \PAMI\Client\Exception\ClientException
-     * @return \PAMI\Message\Response\ResponseMessage
+     * @return \PAMI\Message\Response\Response
      */
     public function send(OutgoingMessage $message)
     {

@@ -41,7 +41,7 @@ namespace PAMI\Message\Event;
  * @license    http://marcelog.github.com/PAMI/ Apache License 2.0
  * @link       http://marcelog.github.com/PAMI/
  */
-class NewextenEvent extends EventMessage
+class NewExtenEvent extends EventMessage
 {
     /**
      * Returns key: 'Privilege'.

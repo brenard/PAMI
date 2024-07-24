@@ -83,7 +83,7 @@ abstract class Message
      *
      * @return string[]
      */
-    protected function __sleep()
+    public function __sleep()
     {
         return array('lines', 'variables', 'keys', 'createdDate');
     }
@@ -139,8 +139,8 @@ abstract class Message
             return null;
         } elseif (is_numeric($value)) {
             // index access is safe as is_numeric('') === false
-            if ($value[0] === '0') {
-                // Return as string if there's a leading zero to avoid losing information
+            if ($value[0] === '0' || $value[0] === '+') {
+                // Return as string if there's a leading zero or plus sign to avoid losing information
                 return $value;
             }
             if (filter_var($value, FILTER_VALIDATE_INT, FILTER_FLAG_ALLOW_HEX | FILTER_FLAG_ALLOW_OCTAL)) {

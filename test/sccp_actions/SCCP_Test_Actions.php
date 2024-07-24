@@ -2112,7 +2112,7 @@ namespace PAMI\Client\Impl {
         /**
          * @test
          */
-        public function can_get_SCCPCallforwardNone()
+        public function can_get_SCCPCallForwardNone()
         {
             $write = array(implode("\r\n", array(
             'action: SCCPCallforward',
@@ -2122,7 +2122,7 @@ namespace PAMI\Client\Impl {
             'type: none',
             ''
             )));
-            $action = new \PAMI\Message\Action\SCCPCallforwardAction('1122', 'SEP001122334455');
+            $action = new \PAMI\Message\Action\SCCPCallForwardAction('1122', 'SEP001122334455');
             $client = $this->_start($write, $action);
         }
 

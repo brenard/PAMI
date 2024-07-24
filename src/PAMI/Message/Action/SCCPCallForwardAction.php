@@ -38,7 +38,7 @@ use PAMI\Exception\PAMIException;
  * @license    http://marcelog.github.com/PAMI/ Apache License 2.0
  * @link       http://marcelog.github.com/PAMI/
  */
-class SCCPCallforwardAction extends ActionMessage
+class SCCPCallForwardAction extends ActionMessage
 {
     /**
      * Constructor.

@@ -62,7 +62,7 @@
             <a href="#return">Return</a>
           </li>
           <li>
-            <a href="../../source/PAMI/Message/Action/AttendedTransferAction.php.html#line49">Source</a>
+            <a href="../../source/PAMI/Message/Action/AttendedTransferAction.php.html#line55">Source</a>
           </li>
         </ul>
       </nav>
@@ -76,7 +76,11 @@
           <code>public function __construct(string
         $channel,
             string
-        $exten )
+        $exten,
+            [string
+        $context = NULL,
+            [string
+        $priority = NULL]] )
             </code>
         </div>
         <h2 id="parameterlist">Parameters</h2>
@@ -89,6 +93,14 @@
                 —
                 string</dt>
           <dd><br/>Extension to transfer to.</dd>
+          <dt><code>$context</code>
+                —
+                string</dt>
+          <dd><br/>Context to transfer to.</dd>
+          <dt><code>$priority</code>
+                —
+                string</dt>
+          <dd><br/>Priority to transfer to.</dd>
         </dl>
         <h2 id="return">Returns</h2>
         <dl class="styled">
@@ -99,7 +111,7 @@
       </section>
     </div>
     <footer>
-      <span>Generated using phpDox 0.11.0-dev - Copyright (C) 2010 - 2019 by Arne Blankerts and Contributors</span>
+      <span>Generated using phpDox 0.11.0-dev - Copyright (C) 2010 - 2021 by Arne Blankerts and Contributors</span>
     </footer>
   </body>
 </html>
